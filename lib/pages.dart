@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:auto_route_animation_bug/app_router.dart';
 import 'package:flutter/material.dart';
 
-@RoutePage()
 class BottomTabsNavPage extends StatelessWidget {
   const BottomTabsNavPage({super.key});
 
@@ -14,13 +13,12 @@ class BottomTabsNavPage extends StatelessWidget {
         LibraryRouter(),
         LibraryRouter(),
       ],
-      transitionBuilder: (context, child, animation) => FadeTransition(
-        opacity: animation,
-        child: child,
-      ),
-      builder: (context, child) {
+      builder: (context, child, animation) {
         return Scaffold(
-          body: child,
+          body: FadeTransition(
+            opacity: animation,
+            child: child,
+          ),
           bottomNavigationBar: NavigationBar(
             destinations: const [
               NavigationDestination(icon: Icon(Icons.abc), label: 'Library'),
@@ -36,7 +34,6 @@ class BottomTabsNavPage extends StatelessWidget {
   }
 }
 
-@RoutePage()
 class LibraryTabsPage extends StatelessWidget {
   const LibraryTabsPage({super.key});
 
@@ -57,7 +54,6 @@ class LibraryTabsPage extends StatelessWidget {
   }
 }
 
-@RoutePage()
 class LibraryAlbumsPage extends StatelessWidget {
   const LibraryAlbumsPage({super.key});
 
@@ -74,45 +70,48 @@ class LibraryAlbumsPage extends StatelessWidget {
             ],
           ),
         ),
-        Expanded(
-          child: Row(
-            children: [
-              Expanded(child: Container(color: Colors.orange)),
-              Expanded(child: Container(color: Colors.green)),
-              Expanded(child: Container(color: Colors.orange)),
-            ],
-          ),
-        ),
-        Expanded(
-          child: Row(
-            children: [
-              Expanded(child: Container(color: Colors.green)),
-              Expanded(child: Container(color: Colors.orange)),
-              Expanded(child: Container(color: Colors.green)),
-            ],
-          ),
-        ),
-        Expanded(
-          child: Row(
-            children: [
-              Expanded(child: Container(color: Colors.orange)),
-              Expanded(child: Container(color: Colors.green)),
-              Expanded(child: Container(color: Colors.orange)),
-            ],
-          ),
-        ),
         OutlinedButton(
           onPressed: () {
             context.navigateTo(const AlbumRoute());
           },
+          style: const ButtonStyle(
+            surfaceTintColor: MaterialStatePropertyAll(Colors.red),
+            overlayColor: MaterialStatePropertyAll(Colors.red),
+          ),
           child: const Text('Go'),
+        ),
+        Expanded(
+          child: Row(
+            children: [
+              Expanded(child: Container(color: Colors.orange)),
+              Expanded(child: Container(color: Colors.green)),
+              Expanded(child: Container(color: Colors.orange)),
+            ],
+          ),
+        ),
+        Expanded(
+          child: Row(
+            children: [
+              Expanded(child: Container(color: Colors.green)),
+              Expanded(child: Container(color: Colors.orange)),
+              Expanded(child: Container(color: Colors.green)),
+            ],
+          ),
+        ),
+        Expanded(
+          child: Row(
+            children: [
+              Expanded(child: Container(color: Colors.orange)),
+              Expanded(child: Container(color: Colors.green)),
+              Expanded(child: Container(color: Colors.orange)),
+            ],
+          ),
         ),
       ],
     );
   }
 }
 
-@RoutePage()
 class AlbumPage extends StatelessWidget {
   const AlbumPage({super.key});
 

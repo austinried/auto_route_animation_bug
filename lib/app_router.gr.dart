@@ -1,56 +1,118 @@
+// **************************************************************************
+// AutoRouteGenerator
+// **************************************************************************
+
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
-// AutoRouterGenerator
+// AutoRouteGenerator
 // **************************************************************************
-
+//
 // ignore_for_file: type=lint
-// coverage:ignore-file
 
 part of 'app_router.dart';
 
-abstract class _$AppRouter extends RootStackRouter {
+class _$AppRouter extends RootStackRouter {
   _$AppRouter([GlobalKey<NavigatorState>? navigatorKey]) : super(navigatorKey);
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    EmptyRouterRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const EmptyRouterPage(),
+      );
+    },
     BottomTabsNavRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
+      return MaterialPageX<dynamic>(
         routeData: routeData,
         child: const BottomTabsNavPage(),
       );
     },
+    LibraryRouter.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const EmptyRouterPage(),
+      );
+    },
     LibraryTabsRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
+      return MaterialPageX<dynamic>(
         routeData: routeData,
         child: const LibraryTabsPage(),
       );
     },
+    AlbumRoute.name: (routeData) {
+      return CustomPage<dynamic>(
+        routeData: routeData,
+        child: const AlbumPage(),
+        transitionsBuilder: TransitionsBuilders.slideBottom,
+        durationInMilliseconds: 2000,
+        reverseDurationInMilliseconds: 2000,
+        opaque: true,
+        barrierDismissible: false,
+      );
+    },
     LibraryAlbumsRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
+      return MaterialPageX<dynamic>(
         routeData: routeData,
         child: const LibraryAlbumsPage(),
       );
     },
-    AlbumRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const AlbumPage(),
-      );
-    },
-    RootRouter.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: RootRouterPage(),
-      );
-    },
-    LibraryRouter.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: LibraryRouterPage(),
-      );
-    },
   };
+
+  @override
+  List<RouteConfig> get routes => [
+        RouteConfig(
+          EmptyRouterRoute.name,
+          path: '/',
+          children: [
+            RouteConfig(
+              BottomTabsNavRoute.name,
+              path: '',
+              parent: EmptyRouterRoute.name,
+              children: [
+                RouteConfig(
+                  LibraryRouter.name,
+                  path: 'library',
+                  parent: BottomTabsNavRoute.name,
+                  children: [
+                    RouteConfig(
+                      LibraryTabsRoute.name,
+                      path: '',
+                      parent: LibraryRouter.name,
+                      children: [
+                        RouteConfig(
+                          LibraryAlbumsRoute.name,
+                          path: 'albums',
+                          parent: LibraryTabsRoute.name,
+                        )
+                      ],
+                    ),
+                    RouteConfig(
+                      AlbumRoute.name,
+                      path: 'album',
+                      parent: LibraryRouter.name,
+                    ),
+                  ],
+                )
+              ],
+            )
+          ],
+        )
+      ];
+}
+
+/// generated route for
+/// [EmptyRouterPage]
+class EmptyRouterRoute extends PageRouteInfo<void> {
+  const EmptyRouterRoute({List<PageRouteInfo>? children})
+      : super(
+          EmptyRouterRoute.name,
+          path: '/',
+          initialChildren: children,
+        );
+
+  static const String name = 'EmptyRouterRoute';
 }
 
 /// generated route for
@@ -59,12 +121,24 @@ class BottomTabsNavRoute extends PageRouteInfo<void> {
   const BottomTabsNavRoute({List<PageRouteInfo>? children})
       : super(
           BottomTabsNavRoute.name,
+          path: '',
           initialChildren: children,
         );
 
   static const String name = 'BottomTabsNavRoute';
+}
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+/// generated route for
+/// [EmptyRouterPage]
+class LibraryRouter extends PageRouteInfo<void> {
+  const LibraryRouter({List<PageRouteInfo>? children})
+      : super(
+          LibraryRouter.name,
+          path: 'library',
+          initialChildren: children,
+        );
+
+  static const String name = 'LibraryRouter';
 }
 
 /// generated route for
@@ -73,66 +147,33 @@ class LibraryTabsRoute extends PageRouteInfo<void> {
   const LibraryTabsRoute({List<PageRouteInfo>? children})
       : super(
           LibraryTabsRoute.name,
+          path: '',
           initialChildren: children,
         );
 
   static const String name = 'LibraryTabsRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [LibraryAlbumsPage]
-class LibraryAlbumsRoute extends PageRouteInfo<void> {
-  const LibraryAlbumsRoute({List<PageRouteInfo>? children})
-      : super(
-          LibraryAlbumsRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'LibraryAlbumsRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
 /// [AlbumPage]
 class AlbumRoute extends PageRouteInfo<void> {
-  const AlbumRoute({List<PageRouteInfo>? children})
+  const AlbumRoute()
       : super(
           AlbumRoute.name,
-          initialChildren: children,
+          path: 'album',
         );
 
   static const String name = 'AlbumRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
-/// [RootRouterPage]
-class RootRouter extends PageRouteInfo<void> {
-  const RootRouter({List<PageRouteInfo>? children})
+/// [LibraryAlbumsPage]
+class LibraryAlbumsRoute extends PageRouteInfo<void> {
+  const LibraryAlbumsRoute()
       : super(
-          RootRouter.name,
-          initialChildren: children,
+          LibraryAlbumsRoute.name,
+          path: 'albums',
         );
 
-  static const String name = 'RootRouter';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [LibraryRouterPage]
-class LibraryRouter extends PageRouteInfo<void> {
-  const LibraryRouter({List<PageRouteInfo>? children})
-      : super(
-          LibraryRouter.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'LibraryRouter';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const String name = 'LibraryAlbumsRoute';
 }
