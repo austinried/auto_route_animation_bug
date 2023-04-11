@@ -74,38 +74,40 @@ class LibraryAlbumsPage extends StatelessWidget {
             ],
           ),
         ),
-        Expanded(
-          child: Row(
-            children: [
-              Expanded(child: Container(color: Colors.orange)),
-              Expanded(child: Container(color: Colors.green)),
-              Expanded(child: Container(color: Colors.orange)),
-            ],
-          ),
-        ),
-        Expanded(
-          child: Row(
-            children: [
-              Expanded(child: Container(color: Colors.green)),
-              Expanded(child: Container(color: Colors.orange)),
-              Expanded(child: Container(color: Colors.green)),
-            ],
-          ),
-        ),
-        Expanded(
-          child: Row(
-            children: [
-              Expanded(child: Container(color: Colors.orange)),
-              Expanded(child: Container(color: Colors.green)),
-              Expanded(child: Container(color: Colors.orange)),
-            ],
-          ),
-        ),
         OutlinedButton(
           onPressed: () {
             context.navigateTo(const AlbumRoute());
           },
+          style:
+              ButtonStyle(overlayColor: MaterialStatePropertyAll(Colors.red)),
           child: const Text('Go'),
+        ),
+        Expanded(
+          child: Row(
+            children: [
+              Expanded(child: Container(color: Colors.orange)),
+              Expanded(child: Container(color: Colors.green)),
+              Expanded(child: Container(color: Colors.orange)),
+            ],
+          ),
+        ),
+        Expanded(
+          child: Row(
+            children: [
+              Expanded(child: Container(color: Colors.green)),
+              Expanded(child: Container(color: Colors.orange)),
+              Expanded(child: Container(color: Colors.green)),
+            ],
+          ),
+        ),
+        Expanded(
+          child: Row(
+            children: [
+              Expanded(child: Container(color: Colors.orange)),
+              Expanded(child: Container(color: Colors.green)),
+              Expanded(child: Container(color: Colors.orange)),
+            ],
+          ),
         ),
       ],
     );
